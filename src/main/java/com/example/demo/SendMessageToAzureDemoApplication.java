@@ -21,15 +21,17 @@ public class SendMessageToAzureDemoApplication {
 	@PostMapping("/sendmessagetoazure")
 	public void sendMessage(@RequestBody AzureMessage azuremessage)
 	{
+		String connectionString = "Endpoint=sb://apicentrics.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=f0j9monM6TRW+QUS+709zVqWcjAB8zaFpbAR/Tk2uJc=";
+		String queueName = "gopi-queue";
 		
 		ServiceBusSenderClient senderClient = new ServiceBusClientBuilder()
-	            .connectionString(azuremessage.getConnectionString())
+	            .connectionString(connectionString)
 	            .sender()
-	            .queueName(azuremessage.getQueueName())
+	            .queueName(queueName)
 	            .buildClient();
 
-	    senderClient.sendMessage(new ServiceBusMessage(azuremessage.getMessage()));
-	    System.out.println("Sent a message to the queue: " + azuremessage.getMessage());        
+	    senderClient.sendMessage(new ServiceBusMessage(azuremessage.getData()));
+	    System.out.println("Sent a message to the queue: " + azuremessage.getData());        
 	}
 
 
