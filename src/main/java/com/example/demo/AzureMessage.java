@@ -2,28 +2,14 @@ package com.example.demo;
 
 public class AzureMessage {
 
-	String connectionString;
-	String queueName; 
-	String message;
-	
-	public String getConnectionString() {
-		return connectionString;
+	String data;
+
+	public String getData() {
+		return data;
 	}
-	public void setConnectionString(String connectionString) {
-		this.connectionString = connectionString;
+
+	public void setData(String data) {
+		this.data = data;
 	}
-	public String getQueueName() {
-		return queueName;
-	}
-	public void setQueueName(String queueName) {
-		this.queueName = queueName;
-	}
-	public String getMessage() {
-		return message;
-	}
-	public void setMessage(String message) {
-		this.message = message;
-	}
-	
 	
 }
